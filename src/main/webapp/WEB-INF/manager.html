@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manager</title>
+</head>
+<body>
+<form action="#" th:action="@{/manager/addLesson}" th:object="${lesson}" method="post">
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p>Lescturer Name: <input type="text" th:field="*{lecturerName}"/></p>
+    <p>duration: <input type="number" th:field="*{duration}"/></p>
+    <p>price: <input type="number" th:field="*{price}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>ADD STUDENT:</p>
+<form action="#" th:action="@{/manager/addStudent}" th:object="${user}" method="post">
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p>Surname: <input type="text" th:field="*{surname}"/></p>
+    <p>Email: <input type="email" th:field="*{email}"/></p>
+    <ul>
+        <li th:each="lesson: ${lessons}">
+            <input type="checkbox"
+                   th:field="*{lessons}"
+                   th:value="${lesson.id}"
+                   th:text="${lesson.name}"
+            />
+        </li>
+    </ul>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>DELETE LESSON:</p>
+<ul th:each="lesson : ${lessons}">
+    Name: <a th:href="@{/manager/deleteLesson(lessonId=${lesson.id})}">
+    <li th:text="${lesson.name}"/>
+</a>
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>Change LESSON:</p>
+<ul th:each="lesson : ${lessons}">
+    Name: <a th:href="@{/manager/changeLesson(lessonId=${lesson.id})}">
+    <li th:text="${lesson.name}"/>
+</a>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>Student Home</title>
+</head>
+<body>
+
+<ul th:each="lesson : ${lessons}">
+    <a th:href="@{/student/printLesson(lessonId=${lesson.id})}">
+    <li th:text="${lesson.name}"/>
+    </a>
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<form action="#" th:action="@{/student/changeData}" th:object="${user}" method="post">
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p>Surname: <input type="text" th:field="*{surname}"/></p>
+    <p>Email: <input type="email" th:field="*{email}"/></p>
+    <p>Password: <input type="password" th:field="*{password}"/></p>
+    <input type="hidden" th:value="${user.id}" th:name="id"/>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+
+</body>
+</html>

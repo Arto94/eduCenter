@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manager</title>
+</head>
+<body>
+
+<ul>Name:
+    <li th:text="${lesson.name}"/>
+    <br/>
+    <br/>
+    <br/>
+    Duration:
+    <li th:text="${lesson.duration}"/>
+    <br/>
+    <br/>
+    <br/>
+    Price:
+    <li th:text="${lesson.price}"/>
+    <br/>
+    <br/>
+    <br/>
+    Lecturer Name:
+    <li th:text="${lesson.lecturerName}"/>
+    <br/>
+    <br/>
+    <br/>
+    Students:
+    <li th:each="user:${lesson.users}" th:text="${user.name}"/>
+</ul>
+</body>
+</html>

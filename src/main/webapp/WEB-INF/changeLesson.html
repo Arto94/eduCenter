@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manager</title>
+</head>
+<body>
+<form action="#" th:action="@{/manager/saveLesson}" th:object="${lesson}" method="post">
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p>Lescturer Name: <input type="text" th:field="*{lecturerName}"/></p>
+    <p>duration: <input type="number" th:field="*{duration}"/></p>
+    <p>price: <input type="number" th:field="*{price}"/></p>
+    <input type="hidden" th:value="${lesson.id}" th:name="id"/>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>
