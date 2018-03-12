@@ -71,24 +71,9 @@ public class EducenterApplication extends WebMvcConfigurerAdapter {
         return mailSender;
     }
 
-    @Bean
-    @Description("Thymeleaf Template Resolver")
-    public ServletContextTemplateResolver templateResolver() {
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-        templateResolver.setPrefix("/WEB-INF/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
-        return templateResolver;
-    }
 
-    @Bean
-    @Description("Thymeleaf Template Engine")
-    public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setTemplateEngineMessageSource(messageSource());
-        return templateEngine;
-    }
+
+
 
     @Bean
     @Description("Spring Message Resolver")
@@ -98,14 +83,7 @@ public class EducenterApplication extends WebMvcConfigurerAdapter {
         return messageSource;
     }
 
-    @Bean
-    @Description("Thymeleaf View Resolver")
-    public ThymeleafViewResolver viewResolver() {
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(templateEngine());
-        viewResolver.setOrder(1);
-        return viewResolver;
-    }
+
 
 
     @Bean
